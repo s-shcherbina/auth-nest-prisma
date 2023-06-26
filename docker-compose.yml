@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres
+    container_name: auth
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=auth
+      - POSTGRES_PASSWORD=auth
+      - POSTGRES_DATABASE=auth
+    command: postgres
+    restart: always
