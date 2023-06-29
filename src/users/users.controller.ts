@@ -6,8 +6,10 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -17,7 +19,7 @@ export class UsersController {
   createUser(@Body() dto) {
     return this.usersService.save(dto);
   }
-
+  // @UseGuards(JwtAuthGuard)
   @Get(':idOrEmail')
   findOneUser(@Param('idOrEmail') idOrEmail: string) {
     return this.usersService.findOne(idOrEmail);

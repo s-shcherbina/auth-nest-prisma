@@ -64,6 +64,8 @@ export class AuthController {
   ) {
     if (!refreshToken) throw new UnauthorizedException();
 
+    res.clearCookie('refreshtoken');
+
     const tokens = await this.authService.refreshTokens(refreshToken, agent);
     if (!tokens) throw new UnauthorizedException();
 
