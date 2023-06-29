@@ -15,9 +15,11 @@ import { Tokens } from './interfaces';
 import { Response } from 'express';
 import { Cookie } from 'src/decorators/cookies.decorator';
 import { UserAgent } from 'src/decorators/user-agent.decorator';
+import { Public } from 'src/decorators/public.decorators';
 
 const REFRESH_TOKEN = 'refreshtoken';
 
+@Public()
 @Controller('auth')
 export class AuthController {
   constructor(
